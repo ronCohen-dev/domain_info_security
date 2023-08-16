@@ -5,13 +5,13 @@ FROM node:$NODE_VERSION
 
 WORKDIR $WORK_DIR
 
-RUN apk update && \
-    apk add --no-cache nano bash htop && \
-    npm install -g nodemon
+#RUN apk update && \
+#    apk add --no-cache nano bash htop && \
+#    npm install -g nodemon
 
 
 COPY ./app/package*.json ./
-RUN npm install
+RUN npm ci --only=production
 COPY ./app ./
 
-CMD npm run dev
+CMD ["npm", "start"]

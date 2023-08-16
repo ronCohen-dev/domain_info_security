@@ -1,8 +1,8 @@
 'use strict'
 
 const https = require('https');
-const {VIRUS_TOTAL_API_KEY, WHO_IS_API_KEY} = require("../utils/constant");
-const VirusModel = require("../models/viruses.model");
+const {VIRUS_TOTAL_API_KEY, WHO_IS_API_KEY} = require("../utils/constant.util");
+const VirusModel = require("../models/virus.model");
 const WhoisModel = require("../models/whois.model");
 const ForensicUtil = require("../utils/forensic.util")
 
@@ -72,8 +72,6 @@ const getAndSaveDataForVirusTotalAndWhoIsService = async function (domain) {
 }
 
 module.exports = {
-    fetchVirusTotalInfo,
-    fetchWhoIsInfo,
     getAndSaveDataForVirusTotalService,
     getAndSaveDataForWhoIsService,
     getAndSaveDataForVirusTotalAndWhoIsService

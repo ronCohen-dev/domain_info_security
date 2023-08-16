@@ -78,13 +78,5 @@ const WhoisModel = sequelize.define('Whois', {
     tableName: 'whois'
 });
 
-exports.findByDomainName = async function (domainName) {
-    return WhoisModel.findOne({
-        where: {
-            domainName: domainName
-        }
-    });
-}
-
 
 module.exports = WhoisModel;

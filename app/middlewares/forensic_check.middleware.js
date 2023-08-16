@@ -1,9 +1,9 @@
 'use strict';
 
 const WhoisModel = require("../models/whois.model");
-const VirusModel = require("../models/viruses.model");
+const VirusModel = require("../models/virus.model");
 
-exports.checkWithVirusTotal = async function (req, res, next) {
+exports.checkWithVirusTotalMiddleware = async function (req, res, next) {
     const domain = req.query.domain;
     const domainForWhoisQuery = domain.replace(/^www\./i, '');
     const [whoisInfo, virusesInfo] = await Promise.all([
@@ -19,7 +19,6 @@ exports.checkWithVirusTotal = async function (req, res, next) {
         })
 
     ]);
-    console.log("whoisInfo,virusesInfo", whoisInfo, virusesInfo)
     if (whoisInfo !== null && virusesInfo !== null) {
         return res.status(200).json({whoisInfo, virusesInfo})
     }

@@ -1,3 +1,4 @@
+'use strict';
 const parseVirusesTotal = function (virusTotalInfo) {
     const virusData = {
         domainId: virusTotalInfo.data.id,

@@ -3,7 +3,7 @@ const DataTypes = require("sequelize").DataTypes;
 const sequelize = require('../configs/sql.config');
 
 
-const VirusModel = sequelize.define('viruses', {
+const VirusModel = sequelize.define('virus', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -75,14 +75,10 @@ const VirusModel = sequelize.define('viruses', {
         type: DataTypes.JSON,
         allowNull: true
     }
+}, {
+    sequelize,
+    tableName: 'virus'
 });
 
-exports.findByDomainId = async function (domainId) {
-    return VirusModel.findOne({
-        where: {
-            domainId: domainId
-        }
-    });
-}
 
 module.exports = VirusModel;

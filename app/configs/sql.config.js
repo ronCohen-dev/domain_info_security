@@ -1,12 +1,12 @@
 'use strict';
 
 const {Sequelize} = require("sequelize");
-const {MYSQL_PORT} = require("../utils/constant");
+const {SQL_PORT, SQL_ROOT_PASSWORD, SQL_DATABASE, SQL_TYPE} = require("../utils/constant.util");
 
-const sequelize = new Sequelize('main', 'root', 'pass', {
+const sequelize = new Sequelize(SQL_DATABASE, 'root', SQL_ROOT_PASSWORD, {
     host: `sql`,
-    dialect: 'mysql',
-    port: MYSQL_PORT
+    dialect: SQL_TYPE,
+    port: SQL_PORT
 });
-
+console.log("SQL_PORT, SQL_ROOT_PASSWORD, SQL_DATABASE, SQL_TYPE : ", SQL_PORT, SQL_ROOT_PASSWORD, SQL_DATABASE, SQL_TYPE)
 module.exports = sequelize;

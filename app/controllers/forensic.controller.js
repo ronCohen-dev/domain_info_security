@@ -1,6 +1,6 @@
 'use strict'
 
-const forensicService = require("./../services/forensic.service");
+const forensicService = require("../services/forensic.service");
 
 exports.getVirusTotalInfoController = async function (req, res, next) {
     const domain = req.query.domain;
